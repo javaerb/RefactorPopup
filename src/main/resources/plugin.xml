@@ -1,0 +1,36 @@
+<idea-plugin>
+  <id>Refactor Popup</id>
+  <name>Refactor Popup</name>
+  <version>2.0</version>
+  <vendor email="plugins@cooperdooper.org">CooperDooper</vendor>
+
+  <description><![CDATA[Mouse shortcut pops up refactor menu as context menu.
+ Action found under the "Plug-ins" category on Keymap.
+ You can map to a shortcut that is the usual context menu plus another modifier key
+ (for example, Ctrl+Button3 on Windows).]]></description>
+
+  <change-notes><![CDATA[Version 2.0: Updated after many years, only deprecations removed.]]>
+  </change-notes>
+
+  <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="201"/>
+
+  <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <depends>com.intellij.modules.platform</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <applicationListeners>
+    <listener class="org.cooperdooper.ideaplugin.refactorpopup.RefactorPopupEditorListener" topic="com.intellij.openapi.editor.event.EditorFactoryListener"/>
+  </applicationListeners>
+
+  <actions>
+    <action id="CooperDooper.RefactorPopup.Action" class="org.cooperdooper.ideaplugin.refactorpopup.RefactorPopupAction" text="Refactor Popup" description="Directly pop up refactor submenu.">
+      <!--mouse-shortcut keystroke="ctrl button3" keymap="$default"/-->
+    </action>
+  </actions>
+
+</idea-plugin>
